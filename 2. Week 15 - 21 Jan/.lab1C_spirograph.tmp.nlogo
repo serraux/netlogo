@@ -7,29 +7,61 @@
 ; Course Title: CS for All: Introduction to Computer Modeling *
 ; Semester: [Spring 2024]                                     *
 ; Instructor: [Neal Holtschulte (he/him)]                     *
+;This program draw 4 spirograph. They are placed in           *
+; 4 different points around the screen.
 ; ---------------------***------------------------------------*
 
 to setup
   clear-all
-  create-turtles 1 [
-  set color random 100
+  reset-ticks
+
+  create-turtles 5 [
+  set shape "circle"
   ]
+  ask turtle 1[
+    setxy 9 0
+    set color blue
+  ]
+  ask turtle 2[
+    setxy -9 0
+    set color green
+  ]
+
 
 end
 
 to Go
-  ask turtles[
-    pen-down ; Lower the pen (start drawing)
-    forward 5; Moves the turtle forward by a specified number of units.
-    right 90;  Rotates the turtle to the right by a specified angle in degrees.
-    forward 5; Moves the turtle forward by a specified number of units.
-    right 90;  Rotates the turtle to the right by a specified angle in degrees.
-    forward 5; Moves the turtle forward by a specified number of units.
-    right 90;  Rotates the turtle to the right by a specified angle in degrees.
-    forward 5; Moves the turtle forward by a specified number of units.
-    right 90;  Rotates the turtle to the right by a specified angle in degrees.
-  ]
 
+  ask turtles[
+    repeat 35[;repeat one
+      repeat 3 [; reapet two
+        pen-down ; draw the trajectory of the turtle
+        forward 3
+        right 120
+      ]; close repeat two
+      right 10
+
+    ];close repeat one
+  ]; close ask turtles
+
+   ask turtle 4[
+    setxy 0 10
+    set color random 98
+    set shape "turtle"
+  ]
+  ask turtle 4[
+    repeat 40[
+      repeat 4[
+        pen-down ; Lower the pen (start drawing)
+        forward 4; Moves the turtle forward by a specified number of units.
+        right 90;  Rotates the turtle to the right by a specified angle in degrees.
+     ]
+      right 10
+   ]
+  ]
+  ask turtles [
+    set color random 98
+  ]
 end
 
 to ClearAll
@@ -87,7 +119,7 @@ BUTTON
 268
 NIL
 Go
-NIL
+T
 1
 T
 OBSERVER
@@ -121,45 +153,34 @@ TEXTBOX
 222
 Drawing a Spirograph
 15
-62.0
+2.0
 1
 
 @#$#@#$#@
 ## WHAT IS IT?
 
-(a general understanding of what the model is trying to show or explain)
+This program draw a couple of spirograph
 
 ## HOW IT WORKS
 
-(what rules the agents use to create the overall behavior of the model)
+setup button clean the screen and then it places 4 turtles in 3 differents positions on the screen. Then with the go button it draws 4 spirographs.
 
 ## HOW TO USE IT
-
-(how to use the model, including a description of each of the items in the Interface tab)
+1. click on the setup button.
+2. click on the go button to draw the spirograph.
+3. you can use the clear button to clean the whole screen.
 
 ## THINGS TO NOTICE
 
-(suggested things for the user to notice while running the model)
+The turtles are placed in the coordenates xy:t1(-9,0), t2(0,0),t3(9,0). The turtle in the point (0,0) has a random color when the user press the setup button.
 
 ## THINGS TO TRY
 
-(suggested things for the user to try to do (move sliders, switches, etc.) with the model)
-
-## EXTENDING THE MODEL
-
-(suggested things to add or change in the Code tab to make the model more complicated, detailed, accurate, etc.)
-
-## NETLOGO FEATURES
-
-(interesting or unusual features of NetLogo that the model uses, particularly in the Code tab; or where workarounds were needed for missing features)
-
-## RELATED MODELS
-
-(models in the NetLogo Models Library and elsewhere which are of related interest)
+Try to press the go button to see how the color of turtles in the middle changes.
 
 ## CREDITS AND REFERENCES
 
-(a reference to the model's URL on the web if it has one, as well as any other necessary credits, citations, and links)
+Netlogo documentation
 @#$#@#$#@
 default
 true
