@@ -1,13 +1,13 @@
-; ---------------------***-----------------------------------
-; Author: [Cesar Tapias Sierra]
-; Due Date: [January 21, 2024]
-; Title: [Lab 1B: Draw a Square]
-; School: Central New Mexico Community College
-; Course Number: CSCI 1108, Section [D01]
-; Course Title: CS for All: Introduction to Computer Modeling
-; Semester: [Spring 2024]
-; Instructor: [Neal Holtschulte (he/him)]
-; ---------------------***-----------------------------------
+; ---------------------***------------------------------------*
+; Author: [Cesar Tapias Sierra]                               *
+; Due Date: [January 21, 2024]                                *
+; Title: [Lab 1B: Draw a spirograph]                          *
+; School: Central New Mexico Community College                *
+; Course Number: CSCI 1108, Section [D01]                     *
+; Course Title: CS for All: Introduction to Computer Modeling *
+; Semester: [Spring 2024]                                     *
+; Instructor: [Neal Holtschulte (he/him)]                     *
+; ---------------------***------------------------------------*
 
 to setup
   clear-all
@@ -118,10 +118,10 @@ TEXTBOX
 39
 203
 189
-221
-Drawing a Suare
-11
-104.0
+222
+Drawing a Spirograph
+15
+62.0
 1
 
 @#$#@#$#@
