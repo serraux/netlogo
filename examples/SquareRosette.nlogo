@@ -1,81 +1,78 @@
-; ---------------------***------------------------------------*
-; Author: [Cesar Tapias Sierra]                               *
-; Due Date: [January 21, 2024]                                *
-; Title: [Lab 1B: Draw a spirograph]                          *
-; School: Central New Mexico Community College                *
-; Course Number: CSCI 1108, Section [D01]                     *
-; Course Title: CS for All: Introduction to Computer Modeling *
-; Semester: [Spring 2024]                                     *
-; Instructor: [Neal Holtschulte (he/him)]                     *
-;This program draw 4 spirograph. They are placed in           *
-; 4 different points around the screen.
-; ---------------------***------------------------------------*
+; Author: Chu Jong
+; Date: 09/11/2019
+; Title: Square Rosette
+; School: Central New Mexico Community College
+; Courese Number: CSCI 1108, Section 102
+; Course Title: CS for All: Introduction to Computer Modeling
+; Semester: Fall 2019
+; Instructor: Dr. Chu Jong
 
-to setup
+to setup ;This procedure clear the interface and create and setup a turtle
   clear-all
-  reset-ticks
-
-  create-turtles 5 [
-  set shape "circle"
+  set-default-shape turtles "turtle"
+  create-turtles 2  ; only create one turtle in this program
+  ask turtle 0
+  [
+    setxy 0 0
+;    set heading 0  ;comment this one out, to make random heading direction
   ]
-  ask turtle 1[
-    setxy 9 0
-    set color blue
-  ]
-  ask turtle 2[
-    setxy -9 0
-    set color green
-  ]
-
-
-end
-
-to Go
-
-  ask turtles[
-    repeat 35[;repeat one
-      repeat 3 [; reapet two
-        pen-down ; draw the trajectory of the turtle
-        forward 3
-        right 120
-      ]; close repeat two
-      right 10
-
-    ];close repeat one
-  ]; close ask turtles
-
-   ask turtle 4[
-    setxy 0 10
-    set color random 98
-    set shape "turtle"
-  ]
-  ask turtle 4[
-    repeat 40[
-      repeat 4[
-        pen-down ; Lower the pen (start drawing)
-        forward 4; Moves the turtle forward by a specified number of units.
-        right 90;  Rotates the turtle to the right by a specified angle in degrees.
-     ]
-      right 10
-   ]
-  ]
-  ask turtles [
-    set color random 98
+  ask turtle 1
+  [
+    setxy 8 8
   ]
 end
 
-to ClearAll
-  clear-all
+to Go ;This procedure tells the turtle how to move (draw two squares to form a rosette)
+  ask turtle 0
+  [
+    forward 2  ;move 2 away from the center location
+    right 90
+    forward 2
+    right 90
+
+    pen-down   ;ready to trace the path (draw) Alternatively: penDown
+    ; draw a square
+    forward 8
+    right 90
+    forward 8
+    right 90
+    forward 8
+    right 90
+    forward 8
+    pen-up     ;do not trace the path (draw)
+    setxy 0 0  ;reposition (x y) to 0 0
+    right 15   ;tilt toward 15 degrees to the right (or left)
+  ]
+
+  ask turtle 1
+  [
+    forward 2  ;move 2 away from the center location
+    right 90
+    forward 2
+    right 90
+
+    pen-down   ;ready to trace the path (draw)
+    forward 8
+    right 90
+    forward 8
+    right 90
+    forward 8
+    right 90
+    forward 8
+    pen-up     ;do not trace the path (draw)
+    setxy 8 8  ;reposition (x y) to 8 8
+    right 15   ;tilt toward 15 degrees to the right (or left)
+  ]
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
-299
+210
 10
-785
-497
+647
+448
 -1
 -1
-14.5
+13.0
 1
 10
 1
@@ -96,27 +93,27 @@ ticks
 30.0
 
 BUTTON
-36
-235
-100
-268
-Setup
+59
+60
+141
+93
+NIL
 Setup
 NIL
 1
 T
 OBSERVER
 NIL
-S
+NIL
 NIL
 NIL
 1
 
 BUTTON
-107
-235
-170
-268
+57
+133
+145
+166
 NIL
 Go
 T
@@ -124,63 +121,50 @@ T
 T
 OBSERVER
 NIL
-G
 NIL
 NIL
-1
-
-BUTTON
-177
-235
-240
-268
-Clear
-ClearAll
 NIL
-1
-T
-OBSERVER
-NIL
-C
-NIL
-NIL
-1
-
-TEXTBOX
-39
-203
-189
-222
-Drawing a Spirograph
-15
-2.0
 1
 
 @#$#@#$#@
 ## WHAT IS IT?
 
-This program draw a couple of spirograph
+This program draw multiple squares (15 degree rotation) to form a rosette centered at pre-set (x,y) coordinate, such as (0,0).
+Note: A total of 360/15 = 24 squares will complete the rosette.
 
 ## HOW IT WORKS
 
-setup button clean the screen and then it places 4 turtles in 3 differents positions on the screen. Then with the go button it draws 4 spirographs.
+First, click 'Setup' button to clear the interface, create two turtle (with the shape "turtle"), position the first turle (turtle 0) at the center of the interface and position the second turtle (turtle 1) at the (8,8) location of the interface. Then click 'Go' botton to move the tutles and draw squares of size 8 on the interface.
+
 
 ## HOW TO USE IT
-1. click on the setup button.
-2. click on the go button to draw the spirograph.
-3. you can use the clear button to clean the whole screen.
+
+  1. Click the 'Setup' botton
+  2. Click the 'Go' botton (go forwever botton)
 
 ## THINGS TO NOTICE
 
-The turtles are placed in the coordenates xy:t1(-9,0), t2(0,0),t3(9,0). The turtle in the point (0,0) has a random color when the user press the setup button.
+The tuttle locations are setup to (0,0) and (8,8) by the program, the turtle heading is not specified. Since the turtle heading a random, the direction of the square drew by the program is also random.
 
 ## THINGS TO TRY
 
-Try to press the go button to see how the color of turtles in the middle changes.
+Try to set the turtle at different locations and headings to draw new square(s) to form a resette.
+
+## EXTENDING THE MODEL
+
+You can extend this model by adding different sizes of rosette of different shapes. Or multiple turtles draw different rosette separately.
+
+## NETLOGO FEATURES
+
+No additional features or implementations needed.
+
+## RELATED MODELS
+
+See the Art section of the NetLogo Models Library
 
 ## CREDITS AND REFERENCES
 
-Netlogo documentation
+Not available
 @#$#@#$#@
 default
 true
@@ -487,7 +471,7 @@ false
 Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
 @#$#@#$#@
-NetLogo 6.4.0
+NetLogo 6.2.0
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
